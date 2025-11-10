@@ -1,4 +1,4 @@
-import postgres from 'postgres';
+import postgres, {Sql} from 'postgres';
 import {
   CustomerField,
   CustomersTableType,
@@ -9,7 +9,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+const sql: Sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function fetchRevenue() {
   try {
